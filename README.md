@@ -2,9 +2,10 @@
 
 ## 📖 概述
 
-本指南基于华东理工大学学报（自然科学版）来稿版式要求(<a href="https://journal.ecust.edu.cn/xiazaizhuanqu">)，旨在帮助科研工作者快速掌握 LaTeX 科技论文排版。通过 LaTeX 学习与实践，我将本科论文从 Word 迁移到 LaTeX，并总结了这份实用指南。
+本指南基于[华东理工大学学报（自然科学版）来稿版式要求](https://journal.ecust.edu.cn/xiazaizhuanqu)
+，旨在帮助科研工作者快速掌握 LaTeX 科技论文排版。通过 LaTeX 学习与实践，我将本科论文从 Word 迁移到 LaTeX，并总结了这份实用指南。
 
-## 🏗️ 推荐文件结构
+## 🏗️ 文件结构
 
 ```
 论文项目/
@@ -13,11 +14,11 @@
 ├── references.bib        # 参考文献数据库（必需）
 ├── sections/             # 章节文件（推荐）
 │   ├── abstract.tex      # 中文摘要
-│   ├── abstract_en.tex   # 英文摘要
 │   ├── introduction.tex  # 引言
 │   ├── methodology.tex   # 研究方法
 │   ├── results.tex       # 实验结果
-│   └── conclusion.tex    # 结论
+│   ├── conclusion.tex    # 结论
+│   ├── abstract_en.tex   # 英文摘要
 │   └── graphical.tex     # 图文摘要（可选）
 ├── figures/              # 图片文件夹（推荐）
 │   ├── figure1.pdf       # 矢量图推荐格式
@@ -31,28 +32,13 @@
 ## ⚙️ 环境配置
 
 ### 必需软件安装
-1. **TeX Live** - LaTeX 发行版 https://www.tug.org/texlive/
-
-   国内清华镜像地址 https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/Images/
-2. **TeXstudio** - LaTeX 编辑器 https://www.texstudio.org/
-
-   国内清华镜像地址 https://mirrors.tuna.tsinghua.edu.cn/github-release/texstudio-org/texstudio/LatestRelease/
+1. **TeX Live** - [LaTeX 发行版](https://www.tug.org/texlive/)或[国内清华镜像](https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/Images/)
+2. **TeXstudio** - [LaTeX 编辑器](https://www.texstudio.org/)或[国内清华镜像](https://mirrors.tuna.tsinghua.edu.cn/github-release/texstudio-org/texstudio/LatestRelease/)
 
 ### 推荐编辑器设置
 - **编译器**：XeLaTeX（支持中文）
 - **参考文献工具**：Biber
 - **编码**：UTF-8
-
-## 🎯 LaTeX 核心优势
-
-### 与传统 Word 对比
-| 特性 | LaTeX | Word |
-|------|-------|------|
-| 数学公式 | ⭐⭐⭐⭐⭐ 专业排版 | ⭐⭐⭐ 基础支持 |
-| 参考文献 | ⭐⭐⭐⭐⭐ 自动管理 | ⭐⭐⭐ 手动维护 |
-| 格式一致性 | ⭐⭐⭐⭐⭐ 模板控制 | ⭐⭐ 容易错乱 |
-| 大型文档 | ⭐⭐⭐⭐⭐ 高效管理 | ⭐⭐⭐ 性能下降 |
-| 学习曲线 | ⭐⭐ 需要学习 | ⭐⭐⭐⭐⭐ 即学即用 |
 
 ### 核心概念理解
 - **文档类 (.cls)** → 定义整体样式和格式
@@ -60,6 +46,30 @@
 - **文献 (.bib)** → 管理参考文献
 - **宏包** → 扩展功能（如数学公式、图表等）
 - **编译** → 将源代码转换为PDF
+
+## 📥 获取模板
+
+### 方式一：GitHub 仓库下载
+```markdown
+**推荐方式**：从 GitHub 仓库获取最新版本的模板文件：
+
+1. 访问项目仓库：https://github.com/Yan-Shuyi/ecust-journal-ysy
+2. 点击 "Code" → "Download ZIP" 下载完整项目包
+3. 解压后即可获得 `ecustjournal.cls` 和所有示例文件
+```
+
+### 方式二：Git 克隆（开发者推荐）
+```bash
+# 使用 Git 克隆完整项目
+git clone https://github.com/Yan-Shuyi/ecust-journal-ysy.git
+cd ecust-journal-ysy
+```
+
+### 方式三：仅下载核心文件
+如果您只需要核心模板文件：
+1. 进入 `src/` 目录下载 `ecustjournal.cls`
+2. 查看 `examples/` 目录获取使用示例
+3. 参考 `figures/` 目录中的示例图片
 
 ## 📝 基础编译流程
 
@@ -90,57 +100,6 @@ xelatex main.tex
 
 **注意**：这些批处理文件是**完全可选的**，您也可以直接使用编辑器或手动命令完成所有操作。
 
-## 🚀 快速入门步骤
-
-1. **安装环境**：TeX Live + TeXstudio
-2. **获取模板**：下载 `ecustjournal.cls` 和示例文件
-3. **组织内容**：按模块化结构组织您的论文
-4. **编写内容**：专注内容而非格式
-5. **编译调试**：按顺序编译，逐步解决错误
-6. **最终优化**：调整细节，生成最终PDF
-
-## 💡 实用技巧
-
-### 1. 数学公式排版
-```latex
-% 行内公式
-Einstein 的质能方程 $E = mc^2$ 是物理学的基础。
-
-% 行间公式（带编号）
-\begin{equation}
-    \label{eq:matrix}
-    \mathbf{A} = \begin{bmatrix}
-        a_{11} & a_{12} \\
-        a_{21} & a_{22}
-    \end{bmatrix}
-\end{equation}
-```
-
-### 2. 参考文献管理
-```latex
-% 引用文献
-Montgomery 算法\cite{montgomery1985}在密码学中广泛应用。
-
-% 生成参考文献列表
-\printbibliography
-```
-
-### 3. 图表排版
-```latex
-\begin{table}[htbp]
-    \caption{算法性能对比}
-    \begin{tabular}{lcc}
-        \toprule
-        算法 & 时间(ms) & 内存(MB) \\
-        \midrule
-        算法A & 12.5 & 256 \\
-        算法B & 8.7 & 198 \\
-        \bottomrule
-    \end{tabular}
-    \label{tab:performance}
-\end{table}
-```
-
 ## 🌟 学习建议
 
 ### 推荐学习路径
@@ -152,7 +111,7 @@ Montgomery 算法\cite{montgomery1985}在密码学中广泛应用。
 - **中文支持**：确保使用 XeLaTeX 编译器
 - **参考文献**：使用 Biber + Biblatex 组合
 - **编译错误**：从第一个错误开始解决，逐条处理
-- **格式问题**：坚持使用模板，避免随意修改样式
+- **格式问题**：模板可用，避免随意修改样式
 
 ## 📚 资源推荐
 
@@ -192,14 +151,5 @@ Montgomery 算法\cite{montgomery1985}在密码学中广泛应用。
 **更新日期**：2025年9月
 
 > 💡 提示：本指南将持续更新，欢迎反馈和建议！
-
-## 📥 开始使用
-
-1. **下载模板**：获取最新的 `ecustjournal.cls` 文件
-2. **安装软件**：安装 TeX Live 和 TeXstudio
-3. **创建项目**：按照推荐结构组织您的论文
-4. **开始写作**：专注于内容创作，让 LaTeX 处理格式问题
-
----
 
 *这份指南源于实际的项目迁移经验，从 Word 到 LaTeX 的转换虽然需要学习成本，但带来的排版质量和效率提升是值得的。祝您 LaTeX 之旅愉快！*
