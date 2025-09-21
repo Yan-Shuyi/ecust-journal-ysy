@@ -2,7 +2,7 @@
 
 ## 📖 概述
 
-本指南基于华东理工大学学报（自然科学版）来稿版式要求(https://journal.ecust.edu.cn/xiazaizhuanqu)，旨在帮助科研工作者快速掌握 LaTeX 科技论文排版。通过 LaTeX 学习与实践，我将本科论文从 Word 迁移到 LaTeX，并总结了这份实用指南。
+本指南基于华东理工大学学报（自然科学版）来稿版式要求(<a href="https://journal.ecust.edu.cn/xiazaizhuanqu">)，旨在帮助科研工作者快速掌握 LaTeX 科技论文排版。通过 LaTeX 学习与实践，我将本科论文从 Word 迁移到 LaTeX，并总结了这份实用指南。
 
 ## 🏗️ 推荐文件结构
 
