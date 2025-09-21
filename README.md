@@ -2,7 +2,7 @@
 
 ## 📖 概述
 
-本指南基于华东理工大学学报（自然科学版）模板，旨在帮助科研工作者快速掌握 LaTeX 科技论文排版。通过 LaTeX 学习与实践，我将本科论文从 Word 迁移到 LaTeX，并总结了这份实用指南。
+本指南基于华东理工大学学报（自然科学版）来稿版式要求https://journal.ecust.edu.cn/xiazaizhuanqu，旨在帮助科研工作者快速掌握 LaTeX 科技论文排版。通过 LaTeX 学习与实践，我将本科论文从 Word 迁移到 LaTeX，并总结了这份实用指南。
 
 ## 🏗️ 推荐文件结构
 
@@ -12,11 +12,13 @@
 ├── ecustjournal.cls      # 文档类配置（必需）
 ├── references.bib        # 参考文献数据库（必需）
 ├── sections/             # 章节文件（推荐）
-│   ├── abstract.tex      # 中英文摘要
+│   ├── abstract.tex      # 中文摘要
+│   ├── abstract_en.tex   # 英文摘要
 │   ├── introduction.tex  # 引言
 │   ├── methodology.tex   # 研究方法
 │   ├── results.tex       # 实验结果
 │   └── conclusion.tex    # 结论
+│   └── graphical.tex     # 图文摘要（可选）
 ├── figures/              # 图片文件夹（推荐）
 │   ├── figure1.pdf       # 矢量图推荐格式
 │   └── figure2.eps       # 矢量图格式
@@ -30,7 +32,9 @@
 
 ### 必需软件安装
 1. **TeX Live** - LaTeX 发行版 https://www.tug.org/texlive/
+   国内清华镜像地址 https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/Images/
 2. **TeXstudio** - LaTeX 编辑器 https://www.texstudio.org/
+   国内清华镜像地址 https://mirrors.tuna.tsinghua.edu.cn/github-release/texstudio-org/texstudio/LatestRelease/
 
 ### 推荐编辑器设置
 - **编译器**：XeLaTeX（支持中文）
@@ -50,7 +54,8 @@
 
 ### 核心概念理解
 - **文档类 (.cls)** → 定义整体样式和格式
-- **主文件 (.tex)** → 组织内容结构  
+- **主文件 (.tex)** → 组织内容结构 
+- **文献 (.bib)** → 管理参考文献
 - **宏包** → 扩展功能（如数学公式、图表等）
 - **编译** → 将源代码转换为PDF
 
@@ -152,7 +157,7 @@ Montgomery 算法\cite{montgomery1985}在密码学中广泛应用。
 ### 学习资源
 - https://www.overleaf.com/learn
 - https://www.tug.org/texlive/
-- https://github.com/ecustjournal/template
+- https://www.latexstudio.net/LearnLaTeX/
 
 ### 社区支持
 - https://tex.stackexchange.com/
@@ -180,9 +185,9 @@ Montgomery 算法\cite{montgomery1985}在密码学中广泛应用。
 ---
 
 **作者**：言书懿  
-**联系方式**：yanshuyi@ecust.edu.cn  
+**联系方式**：2644253780@qq.com  
 **许可证**：MIT License  
-**更新日期**：2023年6月
+**更新日期**：2025年9月
 
 > 💡 提示：本指南将持续更新，欢迎反馈和建议！
 
