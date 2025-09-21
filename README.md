@@ -1,9 +1,9 @@
-# LaTeX 科技论文排版指南
+# 华东理工大学学报LaTeX模板（自制）
 
 ## 📖 概述
 
-本指南基于[华东理工大学学报（自然科学版）来稿版式要求](https://journal.ecust.edu.cn/xiazaizhuanqu)
-，旨在帮助科研工作者快速掌握 LaTeX 科技论文排版。通过 LaTeX 学习与实践，我将本科论文从 Word 迁移到 LaTeX，并总结了这份实用指南。
+本模板基于[华东理工大学学报（自然科学版）来稿版式要求](https://journal.ecust.edu.cn/xiazaizhuanqu)
+，通过与元宝 AI 交流写就，仅作为个人 LaTex 项目以供交流。
 
 ## 🏗️ 文件结构
 
@@ -50,13 +50,11 @@
 ## 📥 获取模板
 
 ### 方式一：GitHub 仓库下载
-```markdown
 **推荐方式**：从 GitHub 仓库获取最新版本的模板文件：
 
 1. 访问项目仓库：https://github.com/Yan-Shuyi/ecust-journal-ysy
 2. 点击 "Code" → "Download ZIP" 下载完整项目包
 3. 解压后即可获得 `ecustjournal.cls` 和所有示例文件
-```
 
 ### 方式二：Git 克隆（开发者推荐）
 ```bash
@@ -141,7 +139,7 @@ xelatex main.tex
 
 ## 💖 致谢
 
-感谢华东理工大学学报提供的标准模板，特别感谢元宝在 LaTeX 学习过程中提供的技术指导和支持。
+感谢华东理工大学学报的来稿版式要求 Word 文档模板，特别感谢元宝在 LaTeX 学习过程中提供的技术指导和支持。
 
 ---
 
@@ -150,6 +148,6 @@ xelatex main.tex
 **许可证**：MIT License  
 **更新日期**：2025年9月
 
-> 💡 提示：本指南将持续更新，欢迎反馈和建议！
+> 💡 提示：本模板将持续更新，欢迎反馈和建议！
 
-*这份指南源于实际的项目迁移经验，从 Word 到 LaTeX 的转换虽然需要学习成本，但带来的排版质量和效率提升是值得的。祝您 LaTeX 之旅愉快！*
+*祝您 LaTeX 之旅愉快！*
