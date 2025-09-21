@@ -1,0 +1,36 @@
+% % sections/graphical.tex
+
+\subsection*{图文摘要}
+% 图文摘要要求：选择1-2幅最能体现论文创新价值的彩图
+% 配以英文说明（50个实词以内）
+
+\begin{figure}[H] % 使用 [H] 强制位置
+	\centering
+	\figbicaption{有限域Montgomery算法工作原理示意图} % 中文标题
+	{Schematic diagram of finite field Montgomery algorithm working principle} % 英文标题
+	\includegraphics[width=0.6\textwidth]{figures/figure1.pdf}
+	% 图片要求：彩色，体现创新价值
+\end{figure}
+
+% 英文说明：50个实词以内，突出创新点
+Two different Montgomery algorithm implementations show distinct computational pathways. 
+The improved version reduces computational steps by 40\% while maintaining accuracy in finite field operations.
+
+
+% ==================== 编译说明 ====================
+% 重要：需要编译两次才能正确显示交叉引用！
+% 第一次编译：收集所有标签信息
+% 第二次编译：生成正确的引用编号
+% 推荐编译顺序：
+% 1. xelatex main.tex
+% 2. biber main (如果有参考文献)
+% 3. xelatex main.tex
+% 4. xelatex main.tex
+
+% ==================== 格式要求说明 ====================
+% 1. 所有图表标题使用中英文双语
+% 2. 表格内容使用英文，表头使用英文
+% 3. 图片使用矢量格式（PDF/EPS/AI）
+% 4. 采用三线表格式，无竖斜线
+% 5. 变量使用斜体，矩阵使用黑斜体
+% 6. 图文摘要选择最能体现创新的彩图

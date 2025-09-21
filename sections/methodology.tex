@@ -1,0 +1,58 @@
+% sections/methodology.tex
+
+\section{部分基础知识}
+
+Montgomery算法是一种能够加速模乘运算的算法，通过对乘法的优化，能够显著提高计算效率。本文将对Montgomery算法进行扩展，以适应有限域的运算需求。在本节中我们将介绍一下有限域和Montgomery算法及其需要的基础知识。
+
+\subsection{环的部分性质}
+
+有限域，也被称为伽罗瓦域（Galois field），是仅含有限个元素的域。这一概念是由伽罗瓦（Galois, E.）在19世纪30年代研究代数方程根式求解问题时提出的。有限域在近代编码、计算机理论、组合数学等方面有着广泛的应用。这里仅给出部分定义及其性质：
+
+\begin{definition}\label{def:characteristic}
+	一个无零因子环$R$的非零元的相同的（对加法来说的）阶叫做环$R$的特征\cite{zhang1978}。
+\end{definition}
+
+\begin{property}\label{prop:char-prime}
+	如果无零因子环$R$的特征是有限整数$n$，那么$n$是一个素数。
+\end{property}
+
+\begin{proof}
+	假如$n$不是素数：$n = n_1 n_2$，那么对于$R$中的一个不等于零的元$a$，$n_1 a \neq 0$，$n_2 a \neq 0$，但$(n_1 a)(n_2 a) = (n_1 n_2) a^2 = 0$，这与$R$没有零因子的假定冲突。\qedhere
+\end{proof}
+
+因为无零因子的交换幺环是整环，我们知道域是一个整环，所以根据性质\ref{prop:char-prime}我们得到以下推论：
+
+\begin{property}\label{prop:field-char}
+	整环以及域的特征或是无限大，或是一个素数$p$。
+\end{property}
+
+\subsection{Montgomery模乘算法}
+
+彼得·L·蒙哥马利（Peter L. Montgomery）在1985年提出了一种在避免模除的情况下，计算两个模$N$（$N>1$）整数（即模$N$剩余类）相乘的方法\cite{montgomery1985}。其中加法和减法不变，该方法在对进行多次模$N$运算时可以提高效率。
+
+\subsubsection{算法核心}
+
+Montgomery通过REDC算法，将模乘运算进行转化，使其可以通过一系列乘法和加法运算来完成。
+
+设$N$是一个大于1的整数。我们选择一个与$N$互质的基数$R$，其中$R > N$（这个$R$的选择应该尽可能地使得模$R$的计算成本低）。然后设$R^{-1}$和$N'$是满足$0 < R^{-1} < N$和$0 < N' < R$和$RR^{-1} - NN' = 1$的整数。
+
+对于每个$i$，$0 \leq i < N$，我们让$\bar{i}$来表示包含$iR^{-1} \mod N$的剩余类，也就是所有可以写成$iR^{-1} + mN$形式的整数的集合。这其实是一个完全剩余系。使用这种新的剩余系的原因是我们能够从$T$（$0 \leq T < RN$）快速计算$TR^{-1} \mod N$，如算法\ref{alg:redc}所示：
+
+\begin{algorithm}
+	\caption{REDC算法}\label{alg:redc}
+	\begin{algorithmic}[1]
+		\Procedure{REDC}{$T$}
+		\State $m \gets (T \bmod R) \cdot N' \bmod R$ \Comment{因此 $0 \leq m < R$}
+		\State $t \gets (T + mN) / R$
+		\If {$t \geq N$}
+		\State \Return $t - N$
+		\Else
+		\State \Return $t$
+		\EndIf
+		\EndProcedure
+	\end{algorithmic}
+\end{algorithm}
+
+这个算法返回的$t$即$TR^{-1} \mod N$。
+
+如果我们给定两个在$0$和$N-1$之间的整数$x$和$y$，设$z = \text{REDC}(xy)$，也就是$z \equiv (xy) R^{-1} \mod N$。等式两边同乘$R^{-1}$有$(xR^{-1})(yR^{-1}) \equiv zR^{-1} \mod N$。因为REDC算法给出的$z < N$，所以在新的剩余系下$z$是$x$和$y$的乘积，即$\bar{z} = \bar{x}\bar{y}$。
