@@ -3,8 +3,8 @@
 :: LaTeX 自动清理脚本
 :: 参数：clean.bat [mode] 
 ::   mode 可以是：
-::     normal - 常规清理（默认）
-::     all    - 彻底清理（包括PDF）
+::     normal - 常规清理
+::     all    - 彻底清理（包括PDF）（默认）
 ::     help   - 显示帮助
 :: ==============================================
 
@@ -13,7 +13,7 @@ cd /d "%~dp0"
 
 :: 设置清理模式
 set "MODE=%1"
-if "%MODE%"=="" set "MODE=normal"
+if "%MODE%"=="" set "MODE=all"
 if /i "%MODE%"=="help" goto SHOW_HELP
 if not "%MODE%"=="normal" if not "%MODE%"=="all" (
     echo 错误：无效模式 '%MODE%'
