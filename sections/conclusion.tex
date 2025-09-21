@@ -1,0 +1,124 @@
+% sections/conclusion.tex
+
+\section{图片及表格示例}
+% ====================================================
+% 本节展示论文中使用的图表示例和格式规范
+% 所有图表都采用中英文双语标题，符合学报要求
+% ====================================================
+
+% ==================== 表格示例部分 ====================
+\subsection{表格示例}
+% 表格使用说明：所有表格采用三线表格式，表头使用英文
+% 表格标题使用中英文双语，表格内容使用英文
+
+% 表格引用说明：使用 \ref{} 命令引用表格编号
+实验环境配置详见表 \ref{tab:experiment_environment}，所有测试均在统一硬件和软件环境下进行，确保结果的可比性和可重复性。
+
+\begin{table}[htbp]
+	% 表格位置参数说明：
+	% [htbp] 让 LaTeX 自动选择最佳位置
+	% h=此处, t=顶部, b=底部, p=单独页
+	
+	\centering % 表格居中
+	\tabbicaption{实验环境配置详情} % 中文标题
+	{Experimental environment configuration details} % 英文标题
+	\label{tab:experiment_environment} % 标签用于交叉引用
+	
+	\begin{tabular}{ll} % 两列都左对齐
+		\toprule % 上横线（三线表顶部）
+		\textbf{Configuration Item} & \textbf{Detailed Parameters} \\ % 英文表头
+		\midrule % 中间横线（分隔表头和内容）
+		Processor & Intel Core i7-11800H @ 2.30GHz \\
+		Memory & 32GB DDR4 3200MHz \\
+		Operating System & Ubuntu 20.04.3 LTS \\
+		Programming Language & Python 3.8.10 \\
+		Math Library & NumPy 1.21.2, SymPy 1.9 \\
+		\bottomrule % 底部横线（三线表底部）
+	\end{tabular}
+	% 注意：需要 booktabs 宏包支持三线表
+\end{table}
+
+% ==================== 性能对比表格示例 ====================
+% 第二个表格示例：展示算法性能对比数据
+\begin{table}[htbp]
+	\centering
+	\tabbicaption{算法性能对比结果} % 中文标题
+	{Performance comparison results of different algorithms} % 英文标题
+	\label{tab:performance_comparison} % 标签
+	
+	\begin{tabular}{lS[table-format=2.1]S[table-format=3.0]} % 使用 siunitx 进行数字对齐
+		\toprule
+		{Algorithm} & {Time (ms)} & {Memory (MB)} \\ % 英文表头
+		\midrule
+		Traditional Montgomery & 12.5 & 256 \\
+		Proposed Algorithm & 8.7 & 198 \\
+		Optimized Version & 6.2 & 215 \\
+		\bottomrule
+	\end{tabular}
+	% 注意：需要 siunitx 宏包支持数字对齐
+\end{table}
+
+% ==================== 图片示例部分 ====================
+\subsection{图片示例}
+% 图片使用说明：所有图片采用矢量格式（PDF/EPS）
+% 图片标题使用中英文双语，确保清晰度
+
+% 图片引用说明：使用 \ref{} 命令引用图片编号
+图 \ref{fig:performance_comparison} 展示了不同算法在相同测试数据集上的性能对比结果。从图中可以看出，本文提出的算法在时间效率上显著优于传统方法。
+
+\begin{figure}[htbp]
+	\centering
+	\figbicaption{各算法性能对比分析图} % 中文标题
+	{Performance comparison analysis of different algorithms} % 英文标题
+	\label{fig:performance_comparison} % 标签
+	\includegraphics[width=0.85\textwidth]{figures/figure2.eps} % 矢量图格式
+	% 图片尺寸说明：使用相对尺寸（0.85\textwidth）确保自适应
+\end{figure}
+
+% 第二个图片示例：算法执行流程图
+图 \ref{fig:algorithm_flow} 展示了本文算法的完整执行流程，包括输入处理、核心计算和结果输出三个阶段。
+
+\begin{figure}[H] % 使用H强制当前位置
+	\centering
+	\figbicaption{改进Montgomery算法的执行流程图} % 中文标题
+	{Execution flow chart of improved Montgomery algorithm} % 英文标题
+	\label{fig:algorithm_flow} % 标签
+	\includegraphics[width=0.85\textwidth]{figures/ECUST-logo.png} % PDF矢量格式
+	\end{figure}
+	
+% ==================== 交叉引用示例 ====================
+% 交叉引用说明：使用 \ref{} 引用图表编号
+如图 \ref{fig:algorithm_flow} 所示，算法通过三个主要阶段实现了有限域上的高效模乘运算。结合表 \ref{tab:experiment_environment} 中的实验环境数据和表 \ref{tab:performance_comparison} 的性能结果，可以全面评估算法的有效性。
+
+% ==================== 子图表示例 ====================
+% 子图片示例：使用 subcaption 宏包支持多个子图
+\begin{figure}[H] % 使用H强制当前位置
+	\centering
+		% 主图标题
+	\figbicaption{算法复杂度对比分析} % 主图中文标题
+	{Comparative analysis of algorithm complexity} % 主图英文标题
+	\label{fig:complexity_analysis} % 主图标签
+	
+	% 第一个子图：时间复杂度分析
+	\begin{subfigure}{0.45\textwidth} % 子图宽度
+		\centering
+		\figbicaption{时间复杂度分析} % 子图中文标题
+		{Time complexity analysis} % 子图英文标题
+		\label{fig:time_complexity} % 子图标签
+		\includegraphics[width=0.85\linewidth]{figures/ECUST-logo.png}
+	\end{subfigure}% 子图中间不要随便添加空格换行，会导致空间不够第二子图自动换行
+	\hfill % 填充间距
+	% 第二个子图：空间复杂度分析
+	\begin{subfigure}{0.45\textwidth}
+		\centering
+		\figbicaption{空间复杂度分析} % 子图中文标题
+		{Space complexity analysis} % 子图英文标题
+		\label{fig:space_complexity} % 子图标签
+		\includegraphics[width=0.85\linewidth]{figures/ECUST-logo.png}
+	\end{subfigure}
+
+\end{figure}
+
+
+
+时间复杂度和空间复杂度的详细分析分别见图 \ref{fig:time_complexity} 和图 \ref{fig:space_complexity}，整体复杂度对比见图 \ref{fig:complexity_analysis}。

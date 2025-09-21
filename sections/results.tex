@@ -1,0 +1,81 @@
+% sections/results.tex
+
+\section{引用示例}
+
+% ==================== 基本定义部分 ====================
+\subsection{基本定义}
+
+\begin{definition}
+	设 $\mathrm{GF}(p^k)$ 是特征为 $p$ 的有限域，其同构映射定义为：
+	\begin{equation}
+		\label{eq:isomorphism} % 公式标签，用于交叉引用
+		% 标签命名规范：eq:描述性名称
+		% 例如：eq:isomorphism, eq:matrix, eq:algorithm
+		\phi: \mathrm{GF}(p^k) \rightarrow \mathrm{GF}(p)[x]/(f(x))
+	\end{equation}
+	其中 $f(x)$ 是 $\mathrm{GF}(p)$ 上的 $k$ 次不可约多项式。
+	
+	% 说明：
+	% \mathrm{GF}(p^k) - 有限域表示法
+	% \rightarrow - 映射符号
+	% \mathrm{GF}(p)[x]/(f(x)) - 多项式商环表示
+\end{definition}
+
+% ==================== 公式引用示例 ====================
+\subsection{公式引用示例}
+
+% 使用 \eqref{} 引用公式（自动添加括号）
+根据同构映射定义（公式 \eqref{eq:isomorphism}），我们可以将有限域运算转化为多项式环运算。
+
+% 使用 \ref{} 引用公式（手动添加括号）
+基于公式 \ref{eq:isomorphism} 的数学基础，我们提出了改进的有限域乘法方法。
+
+% 多公式引用示例
+% 假设有多个公式时，可以这样引用：
+% 如公式 \eqref{eq:formula1}、\eqref{eq:formula2} 和 \eqref{eq:formula3} 所示
+
+% ==================== 其他引用类型示例 ====================
+% 以下为其他类型的引用示例（注释状态，可根据需要启用）
+
+% 图片引用示例
+% 如图 \ref{fig:performance} 所示，算法性能有显著提升。
+
+% 表格引用示例  
+% 详细数据参见表 \ref{tab:experiment_results}。
+
+% 章节引用示例
+% 关于理论基础，请参考第\ref{sec:theory}节。
+
+% 参考文献引用示例
+% Montgomery算法\cite{montgomery1985}在密码学中广泛应用。
+
+% ==================== 编译说明 ====================
+% 重要：需要编译两次才能正确显示交叉引用！
+% 第一次编译：xelatex main.tex（收集标签信息）
+% 第二次编译：xelatex main.tex（生成正确编号）
+
+% ==================== 标签命名规范 ====================
+% 公式标签：eq:description    （如：eq:isomorphism）
+% 图片标签：fig:description   （如：fig:performance）
+% 表格标签：tab:description   （如：tab:results）
+% 章节标签：sec:description   （如：sec:introduction）
+% 定理标签：thm:description   （如：thm:main）
+
+% ==================== 高级用法示例 ====================
+% 多公式环境中的引用
+% \begin{align}
+	%     \label{eq:matrix_form}
+	%     \mathbf{A} &= \begin{bmatrix}
+		%         a_{11} & a_{12} \\
+		%         a_{21} & a_{22}
+		%     \end{bmatrix} \\
+	%     \label{eq:matrix_property}
+	%     \det(\mathbf{A}) &= a_{11}a_{22} - a_{12}a_{21}
+	% \end{align}
+% 矩阵定义如公式 \eqref{eq:matrix_form} 所示，其行列式计算如公式 \eqref{eq:matrix_property} 所示。
+
+% ==================== 错误排查提示 ====================
+% 如果引用显示为??，请检查：
+% 1. 是否编译了两次
+% 2. 标签名称是否拼写正确
+% 3. 标签是否在相应环境内定义

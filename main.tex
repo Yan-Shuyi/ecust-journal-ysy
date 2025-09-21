@@ -1,0 +1,76 @@
+% main.tex
+\documentclass{ecustjournal} % 使用自定义文档类 ecustjournal.cls
+\addbibresource{references.bib} % 参考文献数据库文件
+
+% ==================== 文档信息设置 ====================
+% 注意：这里设置的标题作者信息主要用于PDF元数据
+% 实际显示的标题和作者需要在文档中使用自定义命令
+\title{此处填入你的题目}
+\author{言书懿，田老师*} % 作者信息（星号表示通讯作者）
+\date{} % 留空日期，不显示日期
+
+% ==================== 文档开始 ====================
+\begin{document}
+	
+	% ==================== 首页设置 ====================
+	% 生成标题（使用\title、\author、\date中的信息）
+	%\maketitle % 必须添加这一行！
+	
+	% 首页使用特殊页眉样式（双细线）
+	\thispagestyle{firstpage}
+	
+	% ==================== 中文部分 ====================
+	% DOI编号（数字对象标识符）
+	\doi{10.14135/j.cnki.1006-3080.yyyy.nn.zzz}
+	%10.14135：华东理工大学的DOI前缀
+	%j.cnki.1006-3080：期刊标识
+	%yyyy：出版年份
+	%nn：期号
+	%zzz：文章编号
+	
+	% 中文标题、作者、单位（实际显示的内容）
+	% 注意：这里使用自定义命令，而不是\maketitle生成的标题
+	\chinesetitle{此处填入你的题目} % 中文标题
+	\chineseauthor{言书懿，田老师*} % 中文作者（逗号分隔，*表示通讯作者）
+	\chineseaffiliation{华东理工大学 数学学院} % 中文单位
+
+	% 摘要和关键词
+	\input{sections/abstract} % 导入中文摘要内容
+	
+	% 分类信息和文献标志
+	\cclcode{TP301.6} % 中图分类号（需要填写具体分类号）
+	\literaturemark{A} % 文献标志码（A表示理论研究）
+	
+	% ==================== 自动生成目录 ====================
+	% 在这里添加目录命令
+	%\tableofcontents  % 自动生成目录
+	%\thispagestyle{firstpage} % 目录页也使用首页样式
+	
+	% ==================== 正文章节 ====================
+	% 按顺序导入各章节内容
+	\input{sections/introduction} % 第零章：引言
+	\input{sections/methodology} % 第一章：方法
+	\input{sections/results} % 第二章：结果
+	\input{sections/conclusion} % 第三章：结论
+
+	% ==================== 英文部分 ====================
+	% 英文标题、作者、单位（用于英文摘要和目录）
+	\englishtitle{Fill in your title here} % 英文标题（首字母大写）
+	\englishauthor{YAN Shuyi, TIAN Laoshi*} % 英文作者（拼音，姓全大写）
+	\englishaffiliation{School of Mathematics, East China University of Science and Technology} % 英文单位
+	
+	% 英文摘要和关键词
+	\input{sections/abstract_en} % 导入英文摘要内容
+	
+	% ==================== 参考文献 ====================
+	% 参考文献章节
+	\begin{center}
+		\bfseries 参考文献 % 居中粗体标题
+	\end{center}
+	\printbibliography[heading=none] % 输出参考文献，不显示默认标题
+	
+	% ==================== 图文摘要（可选） ====================
+	\input{sections/graphical} % 图文摘要
+	
+	% ==================== 文档结束 ====================
+\end{document}
