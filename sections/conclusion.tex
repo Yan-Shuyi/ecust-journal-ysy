@@ -38,25 +38,54 @@
 	% 注意：需要 booktabs 宏包支持三线表
 \end{table}
 
+根据实验数据，我们对四种算法进行了全面测试。测试环境配置如下：
+\begin{itemize}
+	\item 处理器：Intel i7-11800H @ 2.30GHz
+	\item 内存：32GB DDR4 3200MHz
+	\item 操作系统：Ubuntu 20.04 LTS
+\end{itemize}
+
 % ==================== 性能对比表格示例 ====================
-% 第二个表格示例：展示算法性能对比数据
-\begin{table}[htbp]
+\begin{table}[H] % 使用H强制位置
 	\centering
-	\tabbicaption{算法性能对比结果} % 中文标题
-	{Performance comparison results of different algorithms} % 英文标题
-	\label{tab:performance_comparison} % 标签
+	\tabbicaption{算法性能对比结果}
+	{Performance comparison results of different algorithms}
+	\label{tab:performance_comparison}
 	
-	\begin{tabular}{lS[table-format=2.1]S[table-format=3.0]} % 使用 siunitx 进行数字对齐
-		\toprule
-		{Algorithm} & {Time (ms)} & {Memory (MB)} \\ % 英文表头
-		\midrule
-		Traditional Montgomery & 12.5 & 256 \\
-		Proposed Algorithm & 8.7 & 198 \\
-		Optimized Version & 6.2 & 215 \\
-		\bottomrule
-	\end{tabular}
-	% 注意：需要 siunitx 宏包支持数字对齐
+	% 使用resizebox自动缩放（保持原始比例）
+	\resizebox{\textwidth}{!}{ % 开始缩放
+		\begin{tabular}{l *{2}{S[table-format=2.1]} *{3}{S[table-format=3.0]}} % 5列数据
+			\toprule
+			\multicolumn{1}{c}{\textbf{算法}} & 
+			\multicolumn{1}{c}{\textbf{时间(ms)}} & 
+			\multicolumn{1}{c}{\textbf{加速比}} & 
+			\multicolumn{1}{c}{\textbf{内存(MB)}} & 
+			\multicolumn{1}{c}{\textbf{吞吐量(Mbps)}} & 
+			\multicolumn{1}{c}{\textbf{准确率(\%)}} \\
+			\midrule
+			传统Montgomery & 12.5 & 1.0 & 256 & 120 & 99.8 \\
+			改进算法 & 8.7 & 1.4 & 198 & 180 & 99.9 \\
+			优化版本 & 6.2 & 2.0 & 215 & 210 & 99.9 \\
+			混合方案 & 9.5 & 1.3 & 230 & 165 & 99.7 \\
+			\bottomrule
+		\end{tabular}
+	} % 结束缩放
+	
+	% 添加表格注释（使用threeparttable包）
+	\begin{tablenotes}
+		\small
+		\item[1] 测试环境：Intel i7-11800H @ 2.30GHz, 32GB DDR4
+		\item[2] 数据为10次测试平均值
+		\item[3] 吞吐量测试使用1024-bit模数
+	\end{tablenotes}
 \end{table}
+
+从表\ref{tab:performance_comparison}可以得出以下结论：
+\begin{enumerate}
+	\item 优化版本在时间效率上表现最佳，比传统算法快2倍
+	\item 改进算法在内存占用上最优，减少约22.6%
+	\item 混合方案在吞吐量和内存之间取得较好平衡
+\end{enumerate}
 
 % ==================== 图片示例部分 ====================
 \subsection{图片示例}

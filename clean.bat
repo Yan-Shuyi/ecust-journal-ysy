@@ -84,5 +84,5 @@ pause
 goto END
 
 :END
-timeout /t 3 /nobreak >nul
+timeout /t 1 /nobreak >nul
 exit /b 0

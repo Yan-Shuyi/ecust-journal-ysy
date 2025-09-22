@@ -1,6 +1,5 @@
 % main.tex
 \documentclass{ecustjournal} % 使用自定义文档类 ecustjournal.cls
-\addbibresource{references.bib} % 参考文献数据库文件
 
 % ==================== 文档信息设置 ====================
 % 注意：这里设置的标题作者信息主要用于PDF元数据
@@ -14,7 +13,7 @@
 	
 	% ==================== 首页设置 ====================
 	% 生成标题（使用\title、\author、\date中的信息）
-	%\maketitle % 必须添加这一行！
+	%\maketitle % 自动生成标题必须添加这一行！
 	
 	% 首页使用特殊页眉样式（双细线）
 	\thispagestyle{firstpage}
@@ -32,7 +31,7 @@
 	% 注意：这里使用自定义命令，而不是\maketitle生成的标题
 	\chinesetitle{此处填入你的题目} % 中文标题
 	\chineseauthor{言书懿，田老师*} % 中文作者（逗号分隔，*表示通讯作者）
-	\chineseaffiliation{华东理工大学 数学学院} % 中文单位
+	\chineseaffiliation{华东理工大学\hspace{0.5em}数学学院} % 中文单位，中间加入间隔
 
 	% 摘要和关键词
 	\input{sections/abstract} % 导入中文摘要内容
@@ -52,6 +51,10 @@
 	\input{sections/methodology} % 第一章：方法
 	\input{sections/results} % 第二章：结果
 	\input{sections/conclusion} % 第三章：结论
+	
+	% ==================== 一个声明 ====================
+	\vspace{3em} % 调整与下文间距
+	{\large 声明：本模板内各种数据为AI虚构产生。}
 
 	% ==================== 英文部分 ====================
 	% 英文标题、作者、单位（用于英文摘要和目录）
