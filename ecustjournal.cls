@@ -48,6 +48,9 @@ sorting=none
 \setCJKmainfont{SimSun}[BoldFont=SimHei] % 中文字体：宋体，粗体：黑体
 \setmainfont{Times New Roman} % 英文字体：Times New Roman
 
+% ==================== 字体字号 ====================
+%使用默认字体字号，与word模板字体字号不同
+
 % ==================== 页眉页脚详细设置 ====================
 \pagestyle{fancy}
 \fancyhf{} % 清除所有页眉页脚
